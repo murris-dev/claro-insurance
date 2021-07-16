@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Carbon\Carbon;
 
 class User extends Authenticatable
 {
@@ -20,6 +21,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'cell_phone',
+        'birthday',
+        'ciudad',
+        'identity_card'
     ];
 
     /**
@@ -40,4 +45,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getAgeAttribute()
+    {
+        return Carbon::parse($this->birthday)->age;
+    }
 }
