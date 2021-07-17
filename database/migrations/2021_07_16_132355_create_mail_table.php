@@ -13,9 +13,16 @@ class CreateMailTable extends Migration
      */
     public function up()
     {
-        Schema::create('mail', function (Blueprint $table) {
+        Schema::create('emails', function (Blueprint $table) {
             $table->id();
+            $table->string('destination', 50);
+            $table->string('title');
+            $table->text('message');
+            $table->boolean('send_to')->default(false);
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
+            
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

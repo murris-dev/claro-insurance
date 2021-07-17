@@ -50,4 +50,8 @@ class User extends Authenticatable
     {
         return Carbon::parse($this->birthday)->age;
     }
+
+    public function emails() {
+        return $this->hasMany(Email::class);
+    }
 }

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -130,3 +130,24 @@
         </div>
     </body>
 </html>
+ --}}
+
+ @extends('layouts.app')
+
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Dashboard') }}</div>
+
+                <div class="card-body">
+                    <h1>Claro-Insurance</h1>
+                    <p>Israel Elias Murill Flores</p>
+                    <p>contacto: (+591) 70694892</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection

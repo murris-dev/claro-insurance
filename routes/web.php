@@ -26,4 +26,9 @@ Route::get('/user', [UserController::class, 'index'])->name('user');
 Route::get('/user/{user_id}/edit', [UserController::class, 'edit'])->name('user.edit');
 Route::put('/user/{user_id}', [UserController::class, 'update'])->name('user.update');
 Route::delete('/user/{user_id}', [UserController::class, 'destroy'])->name('user.destroy');
+
 Route::get('/mail', [App\Http\Controllers\MailController::class, 'index'])->name('mail');
+Route::get('/mail/create', [App\Http\Controllers\MailController::class, 'create'])->name('mail.create');
+Route::post('/mail', [App\Http\Controllers\MailController::class, 'store'])->name('mail.store');
+
+Route::get('/sed-mail', [App\Http\Controllers\MailController::class, 'send'])->name('sendmail');
